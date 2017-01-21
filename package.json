@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mndowne/camper5leader.git"
+    "url": "git+https://github.com/mndowne/dungeoncrawler.git"
   },
   "author": "mndowne",
   "license": "ISC",
@@ -38,7 +38,7 @@
     "node": "*"
   },
   "bugs": {
-    "url": "https://github.com/mndowne/camper5leader/issues"
+    "url": "https://github.com/mndowne/dungeoncrawler/issues"
   },
-  "homepage": "https://github.com/mndowne/camper5leader#readme"
+  "homepage": "https://github.com/mndowne/dungeoncrawler#readme"
 }
