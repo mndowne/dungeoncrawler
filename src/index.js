@@ -81,12 +81,25 @@ class Player extends React.Component {
         super(props);
 
         this.state = { alive : "dead" };
+
+        this.handleMove = this.handleMove.bind(this);
     }
+    
+
+    componentWillMount() {
+        document.addEventListener('keydown', this.handleMove);
+    }
+
+    handleMove(e) {
+        if (e.keyCode == 13)
+            alert('its working fosho');
+    }
+
 
     render() {
 
         return(
-            <div id="player"> </div>
+            <div id="player" ></div>
         );
     }
 }

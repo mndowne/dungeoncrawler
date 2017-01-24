@@ -86,6 +86,8 @@
 	        key: "makemap",
 	        value: function makemap() {
 	
+	            var mapArray1 = [];
+	            var mapArray2 = [];
 	            var startCorner = Math.floor(Math.random() * 4);
 	
 	            var roomLength = Math.floor(Math.random() * 6) + 3;
@@ -93,7 +95,19 @@
 	
 	            var roomcorner = 2;
 	
-	            // for (var corner = 1; 
+	            for (var j = 0; j < roomLength; j++) {
+	                mapArray1 = [];
+	                for (var t = 0; t < roomWidth; t++) {
+	                    mapArray1.push(_react2.default.createElement("div", { className: "map" }));
+	                }
+	                mapArray2.push(_react2.default.createElement(
+	                    "div",
+	                    { className: "row" },
+	                    mapArray1
+	                ));
+	            }
+	
+	            return mapArray2;
 	        }
 	    }, {
 	        key: "render",
@@ -101,9 +115,15 @@
 	
 	            return _react2.default.createElement(
 	                "div",
-	                { id: "Map" },
-	                _react2.default.createElement(Enemy, null),
-	                _react2.default.createElement(Player, null)
+	                null,
+	                _react2.default.createElement(
+	                    "div",
+	                    { className: "map" },
+	                    _react2.default.createElement(Enemy, null),
+	                    _react2.default.createElement(Player, null)
+	                ),
+	                _react2.default.createElement("div", { className: "map" }),
+	                this.makemap()
 	            );
 	        }
 	    }]);
@@ -111,43 +131,75 @@
 	    return Map;
 	}(_react2.default.Component);
 	
-	var Player = function (_React$Component2) {
-	    _inherits(Player, _React$Component2);
+	var Screen = function (_React$Component2) {
+	    _inherits(Screen, _React$Component2);
 	
-	    function Player(props) {
-	        _classCallCheck(this, Player);
+	    function Screen(props) {
+	        _classCallCheck(this, Screen);
 	
-	        var _this2 = _possibleConstructorReturn(this, (Player.__proto__ || Object.getPrototypeOf(Player)).call(this, props));
-	
-	        _this2.state = { alive: "dead" };
-	        return _this2;
+	        return _possibleConstructorReturn(this, (Screen.__proto__ || Object.getPrototypeOf(Screen)).call(this, props));
 	    }
 	
-	    _createClass(Player, [{
+	    _createClass(Screen, [{
 	        key: "render",
 	        value: function render() {
 	
 	            return _react2.default.createElement(
 	                "div",
-	                { id: "player" },
-	                " "
+	                { id: "screen" },
+	                _react2.default.createElement(Map, null)
 	            );
+	        }
+	    }]);
+	
+	    return Screen;
+	}(_react2.default.Component);
+	
+	var Player = function (_React$Component3) {
+	    _inherits(Player, _React$Component3);
+	
+	    function Player(props) {
+	        _classCallCheck(this, Player);
+	
+	        var _this3 = _possibleConstructorReturn(this, (Player.__proto__ || Object.getPrototypeOf(Player)).call(this, props));
+	
+	        _this3.state = { alive: "dead" };
+	
+	        _this3.handleMove = _this3.handleMove.bind(_this3);
+	        return _this3;
+	    }
+	
+	    _createClass(Player, [{
+	        key: "componentWillMount",
+	        value: function componentWillMount() {
+	            document.addEventListener('keydown', this.handleMove);
+	        }
+	    }, {
+	        key: "handleMove",
+	        value: function handleMove(e) {
+	            if (e.keyCode == 13) alert('its working fosho');
+	        }
+	    }, {
+	        key: "render",
+	        value: function render() {
+	
+	            return _react2.default.createElement("div", { id: "player" });
 	        }
 	    }]);
 	
 	    return Player;
 	}(_react2.default.Component);
 	
-	var Enemy = function (_React$Component3) {
-	    _inherits(Enemy, _React$Component3);
+	var Enemy = function (_React$Component4) {
+	    _inherits(Enemy, _React$Component4);
 	
 	    function Enemy(props) {
 	        _classCallCheck(this, Enemy);
 	
-	        var _this3 = _possibleConstructorReturn(this, (Enemy.__proto__ || Object.getPrototypeOf(Enemy)).call(this, props));
+	        var _this4 = _possibleConstructorReturn(this, (Enemy.__proto__ || Object.getPrototypeOf(Enemy)).call(this, props));
 	
-	        _this3.state = { alive: "dead" };
-	        return _this3;
+	        _this4.state = { alive: "dead" };
+	        return _this4;
 	    }
 	
 	    _createClass(Enemy, [{
@@ -165,8 +217,8 @@
 	    return Enemy;
 	}(_react2.default.Component);
 	
-	var App = function (_React$Component4) {
-	    _inherits(App, _React$Component4);
+	var App = function (_React$Component5) {
+	    _inherits(App, _React$Component5);
 	
 	    function App(props) {
 	        _classCallCheck(this, App);
@@ -180,8 +232,12 @@
 	            return _react2.default.createElement(
 	                "div",
 	                null,
-	                _react2.default.createElement(Map, null),
-	                "Hello World"
+	                _react2.default.createElement(
+	                    "h1",
+	                    { id: "title" },
+	                    "Dungeon World"
+	                ),
+	                _react2.default.createElement(Screen, null)
 	            );
 	        }
 	    }]);
@@ -22152,7 +22208,7 @@
 	
 	
 	// module
-	exports.push([module.id, "body {\n  background-color: #beffbe; }\n\n#player {\n  background-color: #f9f996;\n  height: 20px;\n  width: 20px; }\n  #player:hover {\n    background-color: #dbdb6e; }\n\n#Enemy {\n  background-color: #f9f996;\n  height: 20px;\n  width: 20px; }\n  #Enemy:hover {\n    background-color: #dbdb6e; }\n\n.map {\n  background-color: #9595fa;\n  height: 20px;\n  width: 20px; }\n  .map:hover {\n    background-color: #77775a; }\n\n/*# sourceMappingURL=style.css.map */\n", ""]);
+	exports.push([module.id, "body {\n  background-color: #beffbe; }\n\n#player {\n  background-color: #f9f996;\n  height: 20px;\n  width: 20px; }\n  #player:hover {\n    background-color: #dbdb6e; }\n\n#Enemy {\n  background-color: #f9f996;\n  height: 20px;\n  width: 20px; }\n  #Enemy:hover {\n    background-color: #dbdb6e; }\n\n.map {\n  background-color: #9595fa;\n  height: 20px;\n  width: 20px;\n  display: inline-block; }\n  .map:hover {\n    background-color: #77775a; }\n\n#screen {\n  background-color: #32280a;\n  height: 600px;\n  width: 600px;\n  border: solid black;\n  margin: auto; }\n\n#title {\n  text-align: center; }\n\n.row {\n  display: block;\n  margin-top: -4px;\n  margin-bottom: -4px; }\n\n/*# sourceMappingURL=style.css.map */\n", ""]);
 	
 	// exports
 
