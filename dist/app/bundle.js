@@ -22152,7 +22152,7 @@
 	
 	
 	// module
-	exports.push([module.id, "", ""]);
+	exports.push([module.id, "body {\n  background-color: #beffbe; }\n\n#player {\n  background-color: #f9f996;\n  height: 20px;\n  width: 20px; }\n  #player:hover {\n    background-color: #dbdb6e; }\n\n#Enemy {\n  background-color: #f9f996;\n  height: 20px;\n  width: 20px; }\n  #Enemy:hover {\n    background-color: #dbdb6e; }\n\n.map {\n  background-color: #9595fa;\n  height: 20px;\n  width: 20px; }\n  .map:hover {\n    background-color: #77775a; }\n\n/*# sourceMappingURL=style.css.map */\n", ""]);
 	
 	// exports
 

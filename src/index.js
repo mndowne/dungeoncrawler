@@ -14,6 +14,8 @@ class Map extends React.Component {
 
     makemap(){
 
+        let mapArray1 = [];
+        let mapArray2 = [];
         var startCorner = Math.floor(Math.random() * 4);
 
         var roomLength = Math.floor(Math.random() * 6) + 3;
@@ -21,22 +23,55 @@ class Map extends React.Component {
 
         var roomcorner = 2;
 
-        // for (var corner = 1; 
-        
+        for (var j = 0; j < roomLength; j++){
+            mapArray1 = [];
+            for (let t = 0; t < roomWidth; t++){
+                mapArray1.push(<div className="map"></div>);
+            }
+            mapArray2.push(<div className="row">{mapArray1}</div>);
+        }
+                
+        return mapArray2;
     }
 
     render() {
 
         return(
-            <div id="Map"> 
-                <Enemy />
-                <Player />
-                
+            <div>
+                <div className="map"> 
+                    <Enemy />
+                    <Player />
+                    
+                </div>
+                <div className="map"></div>
+                {this.makemap()}
             </div>
+            
         );
     }
 }
 
+
+
+
+
+class Screen extends React.Component {
+    constructor(props) {
+        super(props);
+
+    }
+
+    render() {
+
+        return(
+            <div id="screen">
+                <Map />
+            </div>
+
+                
+        );
+    }
+}
 
 
 
@@ -89,8 +124,8 @@ class App extends React.Component {
     render() {
         return(
             <div>
-                <Map />
-                Hello World
+                <h1 id="title">Dungeon World</h1>
+                <Screen />
             </div>
         );
     }

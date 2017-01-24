@@ -18,8 +18,24 @@ body {
 .map {
   background-color: #9595fa;
   height: 20px;
-  width: 20px; }
+  width: 20px;
+  display: inline-block; }
   .map:hover {
     background-color: #77775a; }
+
+#screen {
+  background-color: #32280a;
+  height: 600px;
+  width: 600px;
+  border: solid black;
+  margin: auto; }
+
+#title {
+  text-align: center; }
+
+.row {
+  display: block;
+  margin-top: -4px;
+  margin-bottom: -4px; }
 
 /*# sourceMappingURL=style.css.map */
