@@ -69,8 +69,104 @@
 	
 	__webpack_require__(/*! ./css/style.css */ 178);
 	
-	var App = function (_React$Component) {
-	    _inherits(App, _React$Component);
+	var Map = function (_React$Component) {
+	    _inherits(Map, _React$Component);
+	
+	    function Map(props) {
+	        _classCallCheck(this, Map);
+	
+	        var _this = _possibleConstructorReturn(this, (Map.__proto__ || Object.getPrototypeOf(Map)).call(this, props));
+	
+	        _this.makemap = _this.makemap.bind(_this);
+	
+	        return _this;
+	    }
+	
+	    _createClass(Map, [{
+	        key: "makemap",
+	        value: function makemap() {
+	
+	            var startCorner = Math.floor(Math.random() * 4);
+	
+	            var roomLength = Math.floor(Math.random() * 6) + 3;
+	            var roomWidth = Math.floor(Math.random() * 6) + 3;
+	
+	            var roomcorner = 2;
+	
+	            // for (var corner = 1; 
+	        }
+	    }, {
+	        key: "render",
+	        value: function render() {
+	
+	            return _react2.default.createElement(
+	                "div",
+	                { id: "Map" },
+	                _react2.default.createElement(Enemy, null),
+	                _react2.default.createElement(Player, null)
+	            );
+	        }
+	    }]);
+	
+	    return Map;
+	}(_react2.default.Component);
+	
+	var Player = function (_React$Component2) {
+	    _inherits(Player, _React$Component2);
+	
+	    function Player(props) {
+	        _classCallCheck(this, Player);
+	
+	        var _this2 = _possibleConstructorReturn(this, (Player.__proto__ || Object.getPrototypeOf(Player)).call(this, props));
+	
+	        _this2.state = { alive: "dead" };
+	        return _this2;
+	    }
+	
+	    _createClass(Player, [{
+	        key: "render",
+	        value: function render() {
+	
+	            return _react2.default.createElement(
+	                "div",
+	                { id: "player" },
+	                " "
+	            );
+	        }
+	    }]);
+	
+	    return Player;
+	}(_react2.default.Component);
+	
+	var Enemy = function (_React$Component3) {
+	    _inherits(Enemy, _React$Component3);
+	
+	    function Enemy(props) {
+	        _classCallCheck(this, Enemy);
+	
+	        var _this3 = _possibleConstructorReturn(this, (Enemy.__proto__ || Object.getPrototypeOf(Enemy)).call(this, props));
+	
+	        _this3.state = { alive: "dead" };
+	        return _this3;
+	    }
+	
+	    _createClass(Enemy, [{
+	        key: "render",
+	        value: function render() {
+	
+	            return _react2.default.createElement(
+	                "div",
+	                { id: "enemy" },
+	                " "
+	            );
+	        }
+	    }]);
+	
+	    return Enemy;
+	}(_react2.default.Component);
+	
+	var App = function (_React$Component4) {
+	    _inherits(App, _React$Component4);
 	
 	    function App(props) {
 	        _classCallCheck(this, App);
@@ -84,6 +180,7 @@
 	            return _react2.default.createElement(
 	                "div",
 	                null,
+	                _react2.default.createElement(Map, null),
 	                "Hello World"
 	            );
 	        }

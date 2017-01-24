@@ -1,0 +1,25 @@
+body {
+  background-color: #beffbe; }
+
+#player {
+  background-color: #f9f996;
+  height: 20px;
+  width: 20px; }
+  #player:hover {
+    background-color: #dbdb6e; }
+
+#Enemy {
+  background-color: #f9f996;
+  height: 20px;
+  width: 20px; }
+  #Enemy:hover {
+    background-color: #dbdb6e; }
+
+.map {
+  background-color: #9595fa;
+  height: 20px;
+  width: 20px; }
+  .map:hover {
+    background-color: #77775a; }
+
+/*# sourceMappingURL=style.css.map */
